@@ -1,0 +1,12 @@
+Auto Generated Documentation
+============================
+SentimentFinder documentation
+-----------------------------
+
+.. automodule:: SentimentFinder
+	:members:
+
+TweetCrawler documentation
+--------------------------
+.. automodule:: TweetCrawler
+	:members:

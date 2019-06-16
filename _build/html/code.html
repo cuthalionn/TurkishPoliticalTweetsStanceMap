@@ -1,0 +1,313 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Auto Generated Documentation &#8212; TurkishPoliticalTweetMapper 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to TurkishPoliticalTweetMapper’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="auto-generated-documentation">
+<h1>Auto Generated Documentation<a class="headerlink" href="#auto-generated-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-SentimentFinder">
+<span id="sentimentfinder-documentation"></span><h2>SentimentFinder documentation<a class="headerlink" href="#module-SentimentFinder" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SentimentFinder.extractTweetSentiments">
+<code class="sig-prename descclassname">SentimentFinder.</code><code class="sig-name descname">extractTweetSentiments</code><span class="sig-paren">(</span><em class="sig-param">filePath</em><span class="sig-paren">)</span><a class="headerlink" href="#SentimentFinder.extractTweetSentiments" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used to exctract the sentiments of the tweets from the provided sentiment data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filePath</strong> (<em>String</em>) – path to tweet Sentiments file</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl>
+<dt>tuple containing:</dt><dd><p>weakSentiments(List): tweets that are classified something that is neither positive nor negative</p>
+<p>tweetSentiments(List) : list of tweet Sentiments</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="SentimentFinder.extractTweets">
+<code class="sig-prename descclassname">SentimentFinder.</code><code class="sig-name descname">extractTweets</code><span class="sig-paren">(</span><em class="sig-param">filePath</em><span class="sig-paren">)</span><a class="headerlink" href="#SentimentFinder.extractTweets" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used to extract tweets given the csv formatted training data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filePath</strong> (<em>String</em>) – path to the training data</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>tweets exctracted from the training data</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="SentimentFinder.findPredictionTools">
+<code class="sig-prename descclassname">SentimentFinder.</code><code class="sig-name descname">findPredictionTools</code><span class="sig-paren">(</span><em class="sig-param">trainingFilePath</em>, <em class="sig-param">tweetSentimetsFilePath</em><span class="sig-paren">)</span><a class="headerlink" href="#SentimentFinder.findPredictionTools" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used to generated the necessary tools to make predictions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>trainingFilePath</strong> (<em>String</em>) – Path to the training data file</p></li>
+<li><p><strong>tweetSentimentsFilePath</strong> (<em>String</em>) – Path to the tweet sentiments data file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl>
+<dt>tuple containing</dt><dd><p>bestModel(GaussianNB): Final gaussian naive bayes model</p>
+<p>featureList(List): List of features</p>
+<p>featureToEncodingMap(Dictionary): Mapping from features to encoding</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="SentimentFinder.generateFeatureList">
+<code class="sig-prename descclassname">SentimentFinder.</code><code class="sig-name descname">generateFeatureList</code><span class="sig-paren">(</span><em class="sig-param">tweetList</em><span class="sig-paren">)</span><a class="headerlink" href="#SentimentFinder.generateFeatureList" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used for generating the word features given all the tweet data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>tweetList</strong> (<em>List</em>) – tweets</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>feature list</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="SentimentFinder.generatePredictions">
+<code class="sig-prename descclassname">SentimentFinder.</code><code class="sig-name descname">generatePredictions</code><span class="sig-paren">(</span><em class="sig-param">bestModel</em>, <em class="sig-param">unlabeledTweets</em>, <em class="sig-param">featureList</em>, <em class="sig-param">feautureToEncodingMap</em><span class="sig-paren">)</span><a class="headerlink" href="#SentimentFinder.generatePredictions" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used to generate predictions for the given unlabeled tweet data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bestModel</strong> (<em>GaussianNB</em>) – Final gaussian naive bayes model</p></li>
+<li><p><strong>unlabaledTweets</strong> (<em>List</em>) – The list of tweets to be predicted</p></li>
+<li><p><strong>featureList</strong> (<em>List</em>) – List of features</p></li>
+<li><p><strong>featureToEncodingMap</strong> (<em>Dictionary</em>) – Mapping from features to encoding</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>sentiment predictions of the given unlabeled tweets</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="SentimentFinder.getFeatureVectors">
+<code class="sig-prename descclassname">SentimentFinder.</code><code class="sig-name descname">getFeatureVectors</code><span class="sig-paren">(</span><em class="sig-param">featureList</em>, <em class="sig-param">tweets</em>, <em class="sig-param">feautureToEncodingMap</em>, <em class="sig-param">listOfWeakSents=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#SentimentFinder.getFeatureVectors" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used to extract featureList, according to predefined features, from the given list of tweets</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>featureList</strong> (<em>List</em>) – List of features</p></li>
+<li><p><strong>tweets</strong> (<em>List</em>) – List of tweets</p></li>
+<li><p><strong>featureToEncodingMap</strong> (<em>Map</em>) – Mapping of features to their specific encodings</p></li>
+<li><p><strong>listOfWeakSents</strong> (<em>List</em>) – List of weak(non positive or negative) sentiments</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List of feature vectors generated from the tweets</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>featureVectors(List)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="SentimentFinder.trainTestDistribute">
+<code class="sig-prename descclassname">SentimentFinder.</code><code class="sig-name descname">trainTestDistribute</code><span class="sig-paren">(</span><em class="sig-param">chunkID</em>, <em class="sig-param">numChunks</em>, <em class="sig-param">featureVectors</em>, <em class="sig-param">labels</em><span class="sig-paren">)</span><a class="headerlink" href="#SentimentFinder.trainTestDistribute" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used to distribute the data to chunks of training and testing</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chunkID</strong> (<em>int</em>) – The index of the initial chunk.</p></li>
+<li><p><strong>numChunks</strong> (<em>int</em>) – The nubmer of chunks.</p></li>
+<li><p><strong>featureVectors</strong> (<em>List</em>) – The list of feature vectors.</p></li>
+<li><p><strong>labels</strong> (<em>List</em>) – The list of labels</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl>
+<dt>tuple containing:</dt><dd><p>trainData(List): Training data</p>
+<p>testData(List): Testing data</p>
+<p>trainLabels(List): Training labels</p>
+<p>Labels(List): Testing labels</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-TweetCrawler">
+<span id="tweetcrawler-documentation"></span><h2>TweetCrawler documentation<a class="headerlink" href="#module-TweetCrawler" title="Permalink to this headline">¶</a></h2>
+<p>Created on Thu Jun  6 19:15:34 2019</p>
+<p>&#64;author: taha</p>
+<dl class="function">
+<dt id="TweetCrawler.pullTweets">
+<code class="sig-prename descclassname">TweetCrawler.</code><code class="sig-name descname">pullTweets</code><span class="sig-paren">(</span><em class="sig-param">api</em>, <em class="sig-param">keywords</em>, <em class="sig-param">writers</em><span class="sig-paren">)</span><a class="headerlink" href="#TweetCrawler.pullTweets" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used to pull recent tweets about given topics and store them through given writers</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>api object</strong> (<em>TwitterAPIObject</em>) – </p></li>
+<li><p><strong>keywords</strong> (<em>List</em>) – </p></li>
+<li><p><strong>CSVWriters</strong> (<em>List</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="TweetCrawler.setAPIEnvironment">
+<code class="sig-prename descclassname">TweetCrawler.</code><code class="sig-name descname">setAPIEnvironment</code><span class="sig-paren">(</span><em class="sig-param">consumerKey</em>, <em class="sig-param">consumerSecret</em>, <em class="sig-param">oauthToken</em>, <em class="sig-param">oauthTokenSecret</em><span class="sig-paren">)</span><a class="headerlink" href="#TweetCrawler.setAPIEnvironment" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used to initialize the Twitter API</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>consumer key for twitter API</strong> (<em>String</em>) – </p></li>
+<li><p><strong>consumer secret for twitter API</strong> (<em>String</em>) – </p></li>
+<li><p><strong>oauth token for twitter API</strong> (<em>String</em>) – </p></li>
+<li><p><strong>oauth token secret for twitter API</strong> (<em>String</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>TwitterAPI</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="TweetCrawler.yieldTweetsHandlingLimits">
+<code class="sig-prename descclassname">TweetCrawler.</code><code class="sig-name descname">yieldTweetsHandlingLimits</code><span class="sig-paren">(</span><em class="sig-param">cursor</em><span class="sig-paren">)</span><a class="headerlink" href="#TweetCrawler.yieldTweetsHandlingLimits" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used to yield tweets from Twitter API while handling the API limitations</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cursor</strong> (<em>TweepyCursorObject</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">TurkishPoliticalTweetMapper</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Auto Generated Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-SentimentFinder">SentimentFinder documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-TweetCrawler">TweetCrawler documentation</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to TurkishPoliticalTweetMapper’s documentation!</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Taha.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.1.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/code.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
