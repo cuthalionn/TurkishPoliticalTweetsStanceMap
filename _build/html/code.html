@@ -31,8 +31,92 @@
             
   <div class="section" id="auto-generated-documentation">
 <h1>Auto Generated Documentation<a class="headerlink" href="#auto-generated-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-TweetCrawler">
+<span id="tweetcrawler"></span><h2>TweetCrawler<a class="headerlink" href="#module-TweetCrawler" title="Permalink to this headline">¶</a></h2>
+<p>Created on Thu Jun  6 19:15:34 2019</p>
+<p>&#64;author: taha</p>
+<dl class="function">
+<dt id="TweetCrawler.pullTweets">
+<code class="sig-prename descclassname">TweetCrawler.</code><code class="sig-name descname">pullTweets</code><span class="sig-paren">(</span><em class="sig-param">api</em>, <em class="sig-param">keywords</em>, <em class="sig-param">writers</em><span class="sig-paren">)</span><a class="headerlink" href="#TweetCrawler.pullTweets" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used to pull recent tweets about given topics and store them through given writers</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>api</strong> (<em>TwitterAPIObject</em>) – Twitter api object</p></li>
+<li><p><strong>keywords</strong> (<em>List</em>) – list of keywords</p></li>
+<li><p><strong>CSVWriters</strong> (<em>List</em>) – list of csv writers</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="TweetCrawler.setAPIEnvironment">
+<code class="sig-prename descclassname">TweetCrawler.</code><code class="sig-name descname">setAPIEnvironment</code><span class="sig-paren">(</span><em class="sig-param">consumerKey</em>, <em class="sig-param">consumerSecret</em>, <em class="sig-param">oauthToken</em>, <em class="sig-param">oauthTokenSecret</em><span class="sig-paren">)</span><a class="headerlink" href="#TweetCrawler.setAPIEnvironment" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used to initialize the Twitter API</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>consumer</strong> (<em>String</em>) – key for twitter API</p></li>
+<li><p><strong>consumerSecret</strong> (<em>String</em>) – for twitter API</p></li>
+<li><p><strong>oauthToken</strong> (<em>String</em>) – for twitter API</p></li>
+<li><p><strong>oauthTokenSecret</strong> (<em>String</em>) – for twitter API</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Twitter API object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>TwitterAPI</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="TweetCrawler.yieldTweetsHandlingLimits">
+<code class="sig-prename descclassname">TweetCrawler.</code><code class="sig-name descname">yieldTweetsHandlingLimits</code><span class="sig-paren">(</span><em class="sig-param">cursor</em><span class="sig-paren">)</span><a class="headerlink" href="#TweetCrawler.yieldTweetsHandlingLimits" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used to yield tweets from Twitter API while handling the API limitations</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cursor</strong> (<em>TweepyCursorObject</em>) – cursor object of Tweepy library</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
 <div class="section" id="module-SentimentFinder">
-<span id="sentimentfinder-documentation"></span><h2>SentimentFinder documentation<a class="headerlink" href="#module-SentimentFinder" title="Permalink to this headline">¶</a></h2>
+<span id="sentimentfinder"></span><h2>SentimentFinder<a class="headerlink" href="#module-SentimentFinder" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="SentimentFinder.extractSupporterCities">
+<code class="sig-prename descclassname">SentimentFinder.</code><code class="sig-name descname">extractSupporterCities</code><span class="sig-paren">(</span><em class="sig-param">file1</em>, <em class="sig-param">file2</em><span class="sig-paren">)</span><a class="headerlink" href="#SentimentFinder.extractSupporterCities" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used to exctract the cities that support the first and the second idea as two separate lists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file1</strong> (<em>String</em>) – Path to the tweet data of the first idea</p></li>
+<li><p><strong>file2</strong> (<em>String</em>) – Path to the tweet data of the second idea</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl class="simple">
+<dt>tuple contains:</dt><dd><p>firstFavs(List): cities that support the first idea
+secondFavs(List): cities that support the second idea</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="function">
 <dt id="SentimentFinder.extractTweetSentiments">
 <code class="sig-prename descclassname">SentimentFinder.</code><code class="sig-name descname">extractTweetSentiments</code><span class="sig-paren">(</span><em class="sig-param">filePath</em><span class="sig-paren">)</span><a class="headerlink" href="#SentimentFinder.extractTweetSentiments" title="Permalink to this definition">¶</a></dt>
@@ -73,6 +157,44 @@
 </dd></dl>
 
 <dl class="function">
+<dt id="SentimentFinder.extractUnlabeledData">
+<code class="sig-prename descclassname">SentimentFinder.</code><code class="sig-name descname">extractUnlabeledData</code><span class="sig-paren">(</span><em class="sig-param">filePath</em><span class="sig-paren">)</span><a class="headerlink" href="#SentimentFinder.extractUnlabeledData" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used to extract the unlabeled data from the csv file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>filePath</strong> (<em>String</em>) – Path to the file</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The list of extracted data</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="SentimentFinder.filterTheCityNames">
+<code class="sig-prename descclassname">SentimentFinder.</code><code class="sig-name descname">filterTheCityNames</code><span class="sig-paren">(</span><em class="sig-param">dataList</em><span class="sig-paren">)</span><a class="headerlink" href="#SentimentFinder.filterTheCityNames" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used to filter the names of the user locations</p>
+<p>Since the user location field twitter provides is a free text field that
+a user can write anything there is a need to first filter the ones
+that actually belong to a place in Turkey. This function does that by trying
+to find a Turkish city name as a substring in the location name of the user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dataList</strong> (<em>List</em>) – List of tweet data along with the other information about the tweet and the user</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>new list of data with city names filtered</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
 <dt id="SentimentFinder.findPredictionTools">
 <code class="sig-prename descclassname">SentimentFinder.</code><code class="sig-name descname">findPredictionTools</code><span class="sig-paren">(</span><em class="sig-param">trainingFilePath</em>, <em class="sig-param">tweetSentimetsFilePath</em><span class="sig-paren">)</span><a class="headerlink" href="#SentimentFinder.findPredictionTools" title="Permalink to this definition">¶</a></dt>
 <dd><p>This function is used to generated the necessary tools to make predictions</p>
@@ -88,6 +210,36 @@
 <dt>tuple containing</dt><dd><p>bestModel(GaussianNB): Final gaussian naive bayes model</p>
 <p>featureList(List): List of features</p>
 <p>featureToEncodingMap(Dictionary): Mapping from features to encoding</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="SentimentFinder.generateFavClasses">
+<code class="sig-prename descclassname">SentimentFinder.</code><code class="sig-name descname">generateFavClasses</code><span class="sig-paren">(</span><em class="sig-param">firstData</em>, <em class="sig-param">secondData</em><span class="sig-paren">)</span><a class="headerlink" href="#SentimentFinder.generateFavClasses" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used to generate the fav classes for both sides from the given datasets</p>
+<p>What it basically does is as following:
+given two tweet sets about opposing ideas, parties etc. it goes
+though all tweets and if the sentiment of the tweet is positive then it is
+added to fav class of the related party otherwise it is added to the fav
+class of the opposing element.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>firstData</strong> (<em>List</em>) – first data set</p></li>
+<li><p><strong>secondData</strong> (<em>List</em>) – second data set</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><dl>
+<dt>tuple contains:</dt><dd><p>firstFavs(List): List of tweets favoring first idea</p>
+<p>secondFavs(List): List of tweets favoring second idea</p>
 </dd>
 </dl>
 </p>
@@ -154,7 +306,7 @@
 <dd class="field-even"><p>List of feature vectors generated from the tweets</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>featureVectors(List)</p>
+<dd class="field-odd"><p>List</p>
 </dd>
 </dl>
 </dd></dl>
@@ -189,20 +341,21 @@
 </dd></dl>
 
 </div>
-<div class="section" id="module-TweetCrawler">
-<span id="tweetcrawler-documentation"></span><h2>TweetCrawler documentation<a class="headerlink" href="#module-TweetCrawler" title="Permalink to this headline">¶</a></h2>
-<p>Created on Thu Jun  6 19:15:34 2019</p>
+<div class="section" id="module-MapGenerator">
+<span id="mapgenerator"></span><h2>MapGenerator<a class="headerlink" href="#module-MapGenerator" title="Permalink to this headline">¶</a></h2>
+<p>Created on Mon Jun 10 22:41:51 2019</p>
 <p>&#64;author: taha</p>
 <dl class="function">
-<dt id="TweetCrawler.pullTweets">
-<code class="sig-prename descclassname">TweetCrawler.</code><code class="sig-name descname">pullTweets</code><span class="sig-paren">(</span><em class="sig-param">api</em>, <em class="sig-param">keywords</em>, <em class="sig-param">writers</em><span class="sig-paren">)</span><a class="headerlink" href="#TweetCrawler.pullTweets" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function is used to pull recent tweets about given topics and store them through given writers</p>
+<dt id="MapGenerator.drawOnMap">
+<code class="sig-prename descclassname">MapGenerator.</code><code class="sig-name descname">drawOnMap</code><span class="sig-paren">(</span><em class="sig-param">popupText</em>, <em class="sig-param">worldMap</em>, <em class="sig-param">clr</em>, <em class="sig-param">loc</em><span class="sig-paren">)</span><a class="headerlink" href="#MapGenerator.drawOnMap" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used to draw a marker on the map with the specified properties</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>api object</strong> (<em>TwitterAPIObject</em>) – </p></li>
-<li><p><strong>keywords</strong> (<em>List</em>) – </p></li>
-<li><p><strong>CSVWriters</strong> (<em>List</em>) – </p></li>
+<li><p><strong>popupText</strong> (<em>String</em>) – The popuptext that will be shown on the marker</p></li>
+<li><p><strong>worldMap</strong> (<em>FoliumMapObject</em>) – The map that the marker will be added to</p></li>
+<li><p><strong>clr</strong> (<em>String</em>) – The color of the marker</p></li>
+<li><p><strong>loc</strong> (<em>Tuple</em>) – A tuple of two values : latitude and longtitude of the marker</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -212,36 +365,83 @@
 </dd></dl>
 
 <dl class="function">
-<dt id="TweetCrawler.setAPIEnvironment">
-<code class="sig-prename descclassname">TweetCrawler.</code><code class="sig-name descname">setAPIEnvironment</code><span class="sig-paren">(</span><em class="sig-param">consumerKey</em>, <em class="sig-param">consumerSecret</em>, <em class="sig-param">oauthToken</em>, <em class="sig-param">oauthTokenSecret</em><span class="sig-paren">)</span><a class="headerlink" href="#TweetCrawler.setAPIEnvironment" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function is used to initialize the Twitter API</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>consumer key for twitter API</strong> (<em>String</em>) – </p></li>
-<li><p><strong>consumer secret for twitter API</strong> (<em>String</em>) – </p></li>
-<li><p><strong>oauth token for twitter API</strong> (<em>String</em>) – </p></li>
-<li><p><strong>oauth token secret for twitter API</strong> (<em>String</em>) – </p></li>
-</ul>
+<dt id="MapGenerator.fillStanceDict">
+<code class="sig-prename descclassname">MapGenerator.</code><code class="sig-name descname">fillStanceDict</code><span class="sig-paren">(</span><em class="sig-param">firstSidePoints</em>, <em class="sig-param">secondSidePoints</em><span class="sig-paren">)</span><a class="headerlink" href="#MapGenerator.fillStanceDict" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used to fill a disctionary that holds each city and the number of
+favs for each standing side.</p>
+<dl class="simple">
+<dt>The keys of the dictionary are location tuples(latitude &amp; longtitude)</dt><dd><dl class="simple">
+<dt>Args:</dt><dd><p>firstSidePoints(List): List of cities for the first side
+secondSidePoints(List): List of cities for the second side</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>TwitterAPI</p>
+<dt>Returns:</dt><dd><p>Dictionary: A new dictionary object with all the cities and the nubmer of favs for
+both sides</p>
+</dd>
+</dl>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="function">
-<dt id="TweetCrawler.yieldTweetsHandlingLimits">
-<code class="sig-prename descclassname">TweetCrawler.</code><code class="sig-name descname">yieldTweetsHandlingLimits</code><span class="sig-paren">(</span><em class="sig-param">cursor</em><span class="sig-paren">)</span><a class="headerlink" href="#TweetCrawler.yieldTweetsHandlingLimits" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function is used to yield tweets from Twitter API while handling the API limitations</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>cursor</strong> (<em>TweepyCursorObject</em>) – </p>
+<dt id="MapGenerator.fillStanceDictNamesAsKeys">
+<code class="sig-prename descclassname">MapGenerator.</code><code class="sig-name descname">fillStanceDictNamesAsKeys</code><span class="sig-paren">(</span><em class="sig-param">firstSidePoints</em>, <em class="sig-param">secondSidePoints</em><span class="sig-paren">)</span><a class="headerlink" href="#MapGenerator.fillStanceDictNamesAsKeys" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used to fill a disctionary that holds each city and the number of
+favs for each standing side.</p>
+<dl class="simple">
+<dt>The keys of the dictionary are city names</dt><dd><dl class="simple">
+<dt>Args:</dt><dd><p>firstSidePoints(List): List of cities for the first side
+secondSidePoints(List): List of cities for the second side</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>None</p>
+<dt>Returns:</dt><dd><p>Dictionary: A new dictionary object with all the cities and the nubmer of favs for
+both sides</p>
 </dd>
 </dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="MapGenerator.generateChoroplethMap">
+<code class="sig-prename descclassname">MapGenerator.</code><code class="sig-name descname">generateChoroplethMap</code><span class="sig-paren">(</span><em class="sig-param">cityBoundariesPath</em>, <em class="sig-param">dataPath</em><span class="sig-paren">)</span><a class="headerlink" href="#MapGenerator.generateChoroplethMap" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used to generate a chorophlet map according to datasets for each side</p>
+<p>The resulting map is stored ander “Results” folder as “mapChorop.html”
+:param cityBoundariesPath: The path to the city boundaries of the Country
+:type cityBoundariesPath: String
+:param dataPath: The path to data
+:type dataPath: String</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="MapGenerator.generateCitySentimentData">
+<code class="sig-prename descclassname">MapGenerator.</code><code class="sig-name descname">generateCitySentimentData</code><span class="sig-paren">(</span><em class="sig-param">akpPoints</em>, <em class="sig-param">chpPoints</em><span class="sig-paren">)</span><a class="headerlink" href="#MapGenerator.generateCitySentimentData" title="Permalink to this definition">¶</a></dt>
+<dd><p>TBD</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="MapGenerator.generateMapPoints">
+<code class="sig-prename descclassname">MapGenerator.</code><code class="sig-name descname">generateMapPoints</code><span class="sig-paren">(</span><em class="sig-param">firstSidePoints</em>, <em class="sig-param">secondSidePoints</em><span class="sig-paren">)</span><a class="headerlink" href="#MapGenerator.generateMapPoints" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used to generate the points on a map according to datasets for each side</p>
+<p>The resulting map is stored ander “Results” folder as “mapMarks.html”
+:param firstSidePoints: List of cities for the first side
+:type firstSidePoints: List
+:param secondSidePoints: List of cities for the second side
+:type secondSidePoints: List</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="MapGenerator.main">
+<code class="sig-prename descclassname">MapGenerator.</code><code class="sig-name descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MapGenerator.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>TBD</p>
 </dd></dl>
 
 </div>
@@ -266,8 +466,9 @@
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Auto Generated Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-SentimentFinder">SentimentFinder documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-TweetCrawler">TweetCrawler documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-TweetCrawler">TweetCrawler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-SentimentFinder">SentimentFinder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-MapGenerator">MapGenerator</a></li>
 </ul>
 </li>
 </ul>

@@ -4,14 +4,6 @@ Created on Thu Jun  6 19:15:34 2019
 
 @author: taha
 """
-# -*- coding: utf-8 -*-
-"""
-Created on Sun May 26 14:35:26 2019
-
-@author: taha
-Geo-Circle that takes Turkey inside
-Position: 39.156081,35.322214 Radius: 802.86603km
-"""
 import tweepy
 import logging
 import csv
@@ -35,7 +27,7 @@ def yieldTweetsHandlingLimits(cursor):
 	"""This function is used to yield tweets from Twitter API while handling the API limitations
 
 		Args:
-			TweepyCursorObject cursor
+			cursor(TweepyCursorObject) : cursor object of Tweepy library
 
 		Returns:
 			None
@@ -55,9 +47,9 @@ def pullTweets(api,keywords,writers):
 	""" This function is used to pull recent tweets about given topics and store them through given writers
 
 		Args:
-			TwitterAPIObject api object
-			List keywords
-			List CSVWriters
+			api(TwitterAPIObject): Twitter api object
+			keywords(List): list of keywords
+			CSVWriters(List): list of csv writers
 
 		Returns:
 			None
@@ -73,13 +65,13 @@ def setAPIEnvironment(consumerKey,consumerSecret,oauthToken,oauthTokenSecret):
 	"""This function is used to initialize the Twitter API
 
 		Args:
-			String consumer key for twitter API
-			String consumer secret for twitter API
-			String oauth token for twitter API
-			String oauth token secret for twitter API
+			consumer(String): key for twitter API
+			consumerSecret(String): for twitter API
+			oauthToken(String): for twitter API
+			oauthTokenSecret(String): for twitter API
 
-		Return:
-			TwitterAPI
+		Returns:
+			TwitterAPI: Twitter API object
 
 			"""
 
@@ -87,8 +79,6 @@ def setAPIEnvironment(consumerKey,consumerSecret,oauthToken,oauthTokenSecret):
 	auth.set_access_token(OAUTH_TOKEN, OAUTH_TOKEN_SECRET)
 	api = tweepy.API(auth)
 	return api
-
-
 
 
 
@@ -109,16 +99,6 @@ if __name__ == '__main__':
 
 	api = setAPIEnvironment(CONSUMER_KEY, CONSUMER_SECRET, OAUTH_TOKEN, OAUTH_TOKEN_SECRET)
 	pullTweets(api,keywords,writers)
-
-
-#					tweet = api.get_status(
-#				except tweepy.TweepError as e:
-#					print(e)
-#					if(e.api_code==88):
-#						print("trying again")
-#						continue
-#					else:
-#						break
 
 
 

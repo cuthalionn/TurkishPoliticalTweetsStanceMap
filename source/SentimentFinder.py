@@ -1,4 +1,7 @@
 # -*- coding: utf-8 -*-
+"""
+
+"""
 import csv
 import sys
 from sklearn import preprocessing
@@ -131,7 +134,7 @@ def getFeatureVectors(featureList,tweets,feautureToEncodingMap,listOfWeakSents=[
 		featureToEncodingMap(Map): Mapping of features to their specific encodings
 		listOfWeakSents(List): List of weak(non positive or negative) sentiments
 	Returns:
-		featureVectors(List): List of feature vectors generated from the tweets
+		List: List of feature vectors generated from the tweets
 
 		"""
 	featureVectors = []
@@ -246,20 +249,20 @@ def generateFavClasses(firstData,secondData):
 	"""This function is used to generate the fav classes for both sides from the given datasets
 
 		What it basically does is as following:
-			given two tweet sets about opposing ideas, parties etc. it goes
-			though all tweets and if the sentiment of the tweet is positive then it is
-			added to fav class of the related party otherwise it is added to the fav
-			class of the opposing element.
+		given two tweet sets about opposing ideas, parties etc. it goes
+		though all tweets and if the sentiment of the tweet is positive then it is
+		added to fav class of the related party otherwise it is added to the fav
+		class of the opposing element.
 
-			Args:
-				firstData(List) : first data set
-				secondData(List) : second data set
+		Args:
+			firstData(List) : first data set
+			secondData(List) : second data set
 
-			Returns:
-				tuple: tuple contains:
-					firstFavs(List): List of tweets favoring first idea
+		Returns:
+			tuple: tuple contains:
+				firstFavs(List): List of tweets favoring first idea
 
-					secondFavs(List): List of tweets favoring second idea
+				secondFavs(List): List of tweets favoring second idea
 
 			"""
 	firstFavs = []
@@ -280,7 +283,19 @@ def generateFavClasses(firstData,secondData):
 	return firstFavs,secondFavs
 
 def filterTheCityNames(dataList):
-	""" """
+	"""This function is used to filter the names of the user locations
+
+		Since the user location field twitter provides is a free text field that
+		a user can write anything there is a need to first filter the ones
+		that actually belong to a place in Turkey. This function does that by trying
+		to find a Turkish city name as a substring in the location name of the user.
+
+		Args:
+			dataList(List): List of tweet data along with the other information about the tweet and the user
+
+		Returns:
+			List: new list of data with city names filtered
+			"""
 	cityNamesList = []
 	cityCoordinates = []
 	cityNamesSetList = []
@@ -305,54 +320,47 @@ def filterTheCityNames(dataList):
 
 	newDataList = []
 	for i in range(len(dataList)):
-		cityFound = False
 		cityCandidate = str(dataList[i].lower().strip())
 		for j in range(len(cityNamesList)):
 			cityName = cityNamesList[j]
 			index = cityCandidate.find(cityName)
 			if index != -1:
 				newDataList.append((cityName,cityCoordinates[j]))
-				cityFound = True
 				break
-#		if(not cityFound and (len(cityCandidate.split(" ")) > 1)):
-#			candidateSet = set(cityCandidate)
-#			maxIntersection = 0
-#			for i in range(len(cityNamesSetList)):
-#				citySet = cityNamesSetList[i]
-#				currentIntersection = len(candidateSet.intersection(citySet))
-#
-#				if(currentIntersection > maxIntersection):
-#					maxIntersection = currentIntersection
-#					bestTuple = (cityNamesList[i],cityCoordinates[i])
-#					cityFound = True
-#			if(cityFound):
-#				print("example city match: ",cityCandidate," ",bestTuple[0])
-#				newDataList.append(bestTuple)
 	return newDataList
 
-		#Find the most similar city name to the candidate in the list
-
 def extractSupporterCities(file1,file2):
+	"""This function is used to exctract the cities that support the first and the second idea as two separate lists.
+
+	Args:
+		file1(String): Path to the tweet data of the first idea
+		file2(String): Path to the tweet data of the second idea
+
+	Returns:
+		tuple: tuple contains:
+			firstFavs(List): cities that support the first idea
+			secondFavs(List): cities that support the second idea
+		"""
 	#file1 -> "Data/PreprocessedAkpTweets.csv"
 	#file2 -> "Data/PreprocessedChpTweets.csv"
 	trainingFilePath = "Data/preprocessedTweets.csv"
 	tweetSentimentsFilePath ="Data/tweetSent.csv"
 	bestModel,featureList,feautureToEncodingMap = findPredictionTools(trainingFilePath,tweetSentimentsFilePath)
 	#AKP predictions
-	akpData = extractUnlabeledData(file1)
-	akpTweets = getTweetsFromData(akpData)
-	akpPredictions = generatePredictions(bestModel,akpTweets,featureList,feautureToEncodingMap)
-	akpData = appendPredictionsToData(akpData,akpPredictions)
+	firstData = extractUnlabeledData(file1)
+	firstDataTweets = getTweetsFromData(firstData)
+	firstPredictions = generatePredictions(bestModel,firstDataTweets,featureList,feautureToEncodingMap)
+	firstData = appendPredictionsToData(firstData,firstPredictions)
 
-	chpData = extractUnlabeledData(file2)
-	chpTweets = getTweetsFromData(chpData)
-	chpPredictions = generatePredictions(bestModel,chpTweets,featureList,feautureToEncodingMap)
-	chpData = appendPredictionsToData(chpData,chpPredictions)
+	secondData = extractUnlabeledData(file2)
+	secondDataTweets = getTweetsFromData(secondData)
+	secondPredictions = generatePredictions(bestModel,secondDataTweets,featureList,feautureToEncodingMap)
+	secondData = appendPredictionsToData(secondData,secondPredictions)
 
-	akpFavs,chpFavs = generateFavClasses(akpData,chpData)
-	akpFavs = filterTheCityNames(akpFavs)
-	chpFavs = filterTheCityNames(chpFavs)
-	return akpFavs,chpFavs
+	firstFavs, secondFavs= generateFavClasses(firstData,secondData)
+	firstFavs = filterTheCityNames(firstFavs)
+	secondFavs = filterTheCityNames(secondFavs)
+	return firstFavs,secondFavs
 
 #a,b = extractSupporterCities("Data/PreprocessedAkpTweets.csv","Data/PreprocessedChpTweets.csv")
 

@@ -1,9 +1,10 @@
 /__pycache__/*
-/Data/*
-/.spyproject/
+/.spyproject/*
 /_static/
 /_templates/
+/Data/
 *.rst
 conf.py
 make.bat
 Makefile
+
