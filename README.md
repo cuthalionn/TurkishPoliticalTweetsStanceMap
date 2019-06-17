@@ -4,7 +4,7 @@ The main idea of the project is the crawl recent tweets about two opposing parti
 The documentation of the code could be found at "/_build/html/index.html".
 
 Screenshots from the resulting maps are as following:
-![Chorophlet Map showing the AKP-favoring ratio of tweets in cities of Turkey. The darker the city the more AKP-favoring tweets there are.](https://ibb.co/8BdXZPb)
+![Chorophlet Map showing the AKP-favoring ratio of tweets in cities of Turkey. The darker the city the more AKP-favoring tweets there are.](\Results\ScreenShots\Chorophlet.png)
 ![Turkish map with each city marked either with yellow(AKP favoring tweets dominate), blue(CHPfavoring tweets dominate) or red (equal)](https://ibb.co/fFd4K7r)
 
 
