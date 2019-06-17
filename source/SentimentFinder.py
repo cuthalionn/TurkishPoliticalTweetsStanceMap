@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
 """
+This module is aimed to train a sentiment finder through an already existing data before and
+using the trained model make predictions on the sentiments of the newly crawled tweets.
+
+The main functionality of this module is that it gives the necessary model to make predictins on
+the sentiments of the given tweets.
 
 """
 import csv

@@ -2,7 +2,6 @@
 """
 Created on Thu Jun 13 16:21:56 2019
 
-@author: taha
 """
 
 import json

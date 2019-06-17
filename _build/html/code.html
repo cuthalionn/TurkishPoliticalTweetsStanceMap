@@ -33,8 +33,9 @@
 <h1>Auto Generated Documentation<a class="headerlink" href="#auto-generated-documentation" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="module-TweetCrawler">
 <span id="tweetcrawler"></span><h2>TweetCrawler<a class="headerlink" href="#module-TweetCrawler" title="Permalink to this headline">¶</a></h2>
-<p>Created on Thu Jun  6 19:15:34 2019</p>
-<p>&#64;author: taha</p>
+<p>The main functionality of this module is to crawl most recent tweets about two apposing ideas,
+using Twitter’s public API. It does so by also handling the limitations the API has.
+s</p>
 <dl class="function">
 <dt id="TweetCrawler.pullTweets">
 <code class="sig-prename descclassname">TweetCrawler.</code><code class="sig-name descname">pullTweets</code><span class="sig-paren">(</span><em class="sig-param">api</em>, <em class="sig-param">keywords</em>, <em class="sig-param">writers</em><span class="sig-paren">)</span><a class="headerlink" href="#TweetCrawler.pullTweets" title="Permalink to this definition">¶</a></dt>
@@ -92,6 +93,10 @@
 </div>
 <div class="section" id="module-SentimentFinder">
 <span id="sentimentfinder"></span><h2>SentimentFinder<a class="headerlink" href="#module-SentimentFinder" title="Permalink to this headline">¶</a></h2>
+<p>This module is aimed to train a sentiment finder through an already existing data before and
+using the trained model make predictions on the sentiments of the newly crawled tweets.</p>
+<p>The main functionality of this module is that it gives the necessary model to make predictins on
+the sentiments of the given tweets.</p>
 <dl class="function">
 <dt id="SentimentFinder.extractSupporterCities">
 <code class="sig-prename descclassname">SentimentFinder.</code><code class="sig-name descname">extractSupporterCities</code><span class="sig-paren">(</span><em class="sig-param">file1</em>, <em class="sig-param">file2</em><span class="sig-paren">)</span><a class="headerlink" href="#SentimentFinder.extractSupporterCities" title="Permalink to this definition">¶</a></dt>
@@ -343,8 +348,8 @@ class of the opposing element.</p>
 </div>
 <div class="section" id="module-MapGenerator">
 <span id="mapgenerator"></span><h2>MapGenerator<a class="headerlink" href="#module-MapGenerator" title="Permalink to this headline">¶</a></h2>
-<p>Created on Mon Jun 10 22:41:51 2019</p>
-<p>&#64;author: taha</p>
+<p>This module includes functions related to prepare the data ready to map &amp; eventually
+create the final map.</p>
 <dl class="function">
 <dt id="MapGenerator.drawOnMap">
 <code class="sig-prename descclassname">MapGenerator.</code><code class="sig-name descname">drawOnMap</code><span class="sig-paren">(</span><em class="sig-param">popupText</em>, <em class="sig-param">worldMap</em>, <em class="sig-param">clr</em>, <em class="sig-param">loc</em><span class="sig-paren">)</span><a class="headerlink" href="#MapGenerator.drawOnMap" title="Permalink to this definition">¶</a></dt>
@@ -418,8 +423,18 @@ both sides</p>
 
 <dl class="function">
 <dt id="MapGenerator.generateCitySentimentData">
-<code class="sig-prename descclassname">MapGenerator.</code><code class="sig-name descname">generateCitySentimentData</code><span class="sig-paren">(</span><em class="sig-param">akpPoints</em>, <em class="sig-param">chpPoints</em><span class="sig-paren">)</span><a class="headerlink" href="#MapGenerator.generateCitySentimentData" title="Permalink to this definition">¶</a></dt>
-<dd><p>TBD</p>
+<code class="sig-prename descclassname">MapGenerator.</code><code class="sig-name descname">generateCitySentimentData</code><span class="sig-paren">(</span><em class="sig-param">firstPoints</em>, <em class="sig-param">secondPoints</em><span class="sig-paren">)</span><a class="headerlink" href="#MapGenerator.generateCitySentimentData" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used to generate the ratio per city using the existing data dictioanry created
+before
+:param firstPoints: The list of points for the first side
+:type firstPoints: List
+:param secondPoints: The list of points for the second side
+:type secondPoints: List</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="function">
@@ -441,7 +456,8 @@ both sides</p>
 <dl class="function">
 <dt id="MapGenerator.main">
 <code class="sig-prename descclassname">MapGenerator.</code><code class="sig-name descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#MapGenerator.main" title="Permalink to this definition">¶</a></dt>
-<dd><p>TBD</p>
+<dd><p>This function is used to make the main call to exctract all the necessary data from
+the existing csv files and generate final mappings.</p>
 </dd></dl>
 
 </div>

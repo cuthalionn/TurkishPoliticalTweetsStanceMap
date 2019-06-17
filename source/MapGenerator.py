@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Mon Jun 10 22:41:51 2019
+This module includes functions related to prepare the data ready to map & eventually
+create the final map.
 
-@author: taha
 """
 from SentimentFinder import extractSupporterCities
 import folium
@@ -160,9 +160,16 @@ def generateChoroplethMap(cityBoundariesPath,dataPath):
 
 	m.save("Results/mapChorop.html")
 
-def generateCitySentimentData(akpPoints,chpPoints):
-	""" TBD"""
-	cityDict = fillStanceDictNamesAsKeys(akpPoints,chpPoints)
+def generateCitySentimentData(firstPoints,secondPoints):
+	""" This function is used to generate the ratio per city using the existing data dictioanry created
+	before
+	Args:
+		firstPoints(List): The list of points for the first side
+		secondPoints(List): The list of points for the second side
+	Returns:
+		None
+		"""
+	cityDict = fillStanceDictNamesAsKeys(firstPoints,secondPoints)
 
 	csvFile1 = open('Data/city_ratio.csv', 'w',encoding = "utf-8")
 	csvWriter1 = csv.writer(csvFile1,delimiter = ",")
@@ -174,8 +181,10 @@ def generateCitySentimentData(akpPoints,chpPoints):
 
 
 def main():
-	"""TBD"""
-	print("I am main")
+	"""This function is used to make the main call to exctract all the necessary data from
+	the existing csv files and generate final mappings.
+
+	"""
 	akpPoints,chpPoints = extractSupporterCities("Data/PreprocessedAkpTweets.csv",
 											  "Data/PreprocessedChpTweets.csv")
 	generateMapPoints(akpPoints,chpPoints)

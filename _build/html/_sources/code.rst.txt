@@ -15,4 +15,4 @@ SentimentFinder
 MapGenerator
 ------------
 .. automodule:: MapGenerator
-	:members:
+	:members:                                                                                                

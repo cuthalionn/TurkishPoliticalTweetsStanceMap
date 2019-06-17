@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu Jun  6 19:15:34 2019
-
-@author: taha
+The main functionality of this module is to crawl most recent tweets about two apposing ideas,
+using Twitter's public API. It does so by also handling the limitations the API has.
+s
 """
 import tweepy
 import logging
