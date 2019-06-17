@@ -7,7 +7,7 @@ Screenshots from the resulting maps are as following:
 ![Chorophlet Map showing the AKP-favoring ratio of tweets in cities of Turkey. The darker the city the more AKP-favoring tweets there are.](https://github.com/cuthalionn/TurkishPoliticalTweetsStanceMap/blob/master/Results/ScreenShots/ChoroMap.PNG)
 Chorophlet Map showing the AKP-favoring ratio of tweets in cities of Turkey. The darker the city the more AKP-favoring tweets there are.
 ![Turkish map with each city marked either with yellow(AKP favoring tweets dominate), blue(CHPfavoring tweets dominate) or red (equal)](https://github.com/cuthalionn/TurkishPoliticalTweetsStanceMap/blob/master/Results/ScreenShots/markMap.PNG)
-Turkish map with each city marked either with yellow(AKP favoring tweets dominate), blue(CHPfavoring tweets dominate
+Turkish map with each city marked either with yellow(AKP favoring tweets dominate), blue(CHPfavoring tweets dominate  or red (equal).
 
 
 
